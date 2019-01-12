@@ -63,7 +63,7 @@ def sort_by_cohort(filename):
     summer_16 = []
     fall_15 = []
     ghosts = []
-    all_students = []
+    all_students = [fall_15, winter_16, spring_16, summer_16, ghosts]
     # Code goes here
 
     filename_open =open(filename)
@@ -81,22 +81,14 @@ def sort_by_cohort(filename):
         full_name = first_name +" "+ last_name
         if position == "Fall 2015":
             fall_15.append(full_name)
-            all_students.append(full_name)
         elif position == "G":
             ghosts.append(full_name)
-            all_students.append(full_name)
         elif position == "Spring 2016":
             spring_16.append(full_name)
-            all_students.append(full_name)
         elif position == "Summer 2016":
             summer_16.append(full_name)
-            all_students.append(full_name)
         elif position == "Winter 2016":
             winter_16.append(full_name)
-            all_students.append(full_name)
-
-
-
     
 
     return all_students
@@ -218,7 +210,7 @@ def all_students_tuple_list(filename):
     return student_list
 
 all_students_tuple_list("cohort_data.txt")
-'''
+
 def find_cohort_by_student_name(student_list):
     """TODO: Given full name, return student's cohort.
 
@@ -311,10 +303,9 @@ def find_house_members_by_student_name(student_list):
 
 
 
-# if __name__ == "__main__":
-#     import doctest
+if __name__ == "__main__":
+    import doctest
 
-#     result = doctest.testmod()
-#     if result.failed == 0:
-#         print("ALL TESTS PASSED")
-'''
+    result = doctest.testmod()
+    if result.failed == 0:
+        print("ALL TESTS PASSED")
