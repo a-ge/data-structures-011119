@@ -176,7 +176,7 @@ def hogwarts_by_house(filename):
     return all_hogwarts
 
 #hogwarts_by_house("cohort_data.txt")
-'''
+
 
 def all_students_tuple_list(filename):
     """TODO: Return a list of tuples of student data.
@@ -195,9 +195,30 @@ def all_students_tuple_list(filename):
 
     # Code goes here
 
+    filename_open =open(filename)
+
+    for line in filename_open:
+
+        strip_line = line.rstrip()
+        
+
+        detail_info = strip_line.split("|")
+
+        position = detail_info[-1]
+        house = detail_info[2]
+        first_name = detail_info[0]
+        last_name = detail_info[1]
+        advisor = detail_info[3]
+        full_name = first_name + " " + last_name
+
+        if detail_info[-1] not in ("IG"):
+            student_tuple = tuple([full_name, house, advisor, position])
+            student_list.append(student_tuple)
+    
     return student_list
 
-
+all_students_tuple_list("cohort_data.txt")
+'''
 def find_cohort_by_student_name(student_list):
     """TODO: Given full name, return student's cohort.
 
